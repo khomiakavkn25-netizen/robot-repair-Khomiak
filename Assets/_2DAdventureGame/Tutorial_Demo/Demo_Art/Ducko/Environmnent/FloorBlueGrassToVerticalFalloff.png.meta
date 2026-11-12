@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 812eb024c8d870c4e8e2e84d6a38099f
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271239
+  packageName: 'Unity Learn | 2D Adventure Game: Robot Repair'
+  packageVersion: 2.0.0
+  assetPath: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Ducko/Environmnent/FloorBlueGrassToVerticalFalloff.png
+  uploadId: 832758
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -377,10 +384,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 271239
-  packageName: 'Unity Learn | 2D Adventure Game: Robot Repair'
-  packageVersion: 2.0.0
-  assetPath: Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Ducko/Environmnent/FloorBlueGrassToVerticalFalloff.png
-  uploadId: 832758
