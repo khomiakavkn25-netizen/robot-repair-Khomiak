@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     public InputAction LaunchAction = new InputAction(
         "Launch", InputActionType.Button, "<Keyboard>/c");
     public GameObject projectilePrefab;
+    public InputAction TalkAction = new InputAction(
+        "Talk", InputActionType.Button, "<Keyboard>/x");
+    NonPlayerCharacter lastNonPlayerCharacter;
     Rigidbody2D rigidbody2d;
     Animator animator;
 
@@ -28,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveAction.Enable();
         LaunchAction.Enable();
+        TalkAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         currentHealth = maxHealth;
@@ -68,6 +72,26 @@ public class PlayerController : MonoBehaviour
         }
 
         launchCooldownTimer -= Time.deltaTime;
+
+        RaycastHit2D hit = Physics2D.Raycast(
+            rigidbody2d.position + Vector2.up * 0.2f,
+            moveDirection, 1.5f, LayerMask.GetMask("NPC"));
+        if (hit.collider != null)
+        {
+            NonPlayerCharacter npc = hit.collider.GetComponent<NonPlayerCharacter>();
+            if (npc != null)
+            {
+                npc.SetBubbleVisible(true);
+                lastNonPlayerCharacter = npc;
+                if (TalkAction.WasPressedThisFrame() && UIHandler.instance != null)
+                    UIHandler.instance.DisplayDialogue();
+            }
+        }
+        else if (lastNonPlayerCharacter != null)
+        {
+            lastNonPlayerCharacter.SetBubbleVisible(false);
+            lastNonPlayerCharacter = null;
+        }
     }
 
     void FixedUpdate()
@@ -95,7 +119,8 @@ public class PlayerController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount,
             0, maxHealth);
 
-        Debug.Log(currentHealth + "/" + maxHealth);
+        if (UIHandler.instance != null)
+            UIHandler.instance.SetHealthValue(currentHealth / (float)maxHealth);
     }
 
     void Launch()

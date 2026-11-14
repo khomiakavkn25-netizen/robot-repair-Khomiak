@@ -1,0 +1,12 @@
+﻿<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="GameUI.uss" />
+    <ui:VisualElement name="HealthBarBackground" class="health-frame">
+        <ui:VisualElement name="HealthBarContainer" class="health-track"><ui:VisualElement name="HealthBar" class="health-fill" /></ui:VisualElement>
+        <ui:VisualElement name="CharacterPortrait" class="portrait"><ui:Label text="ROBOT" class="portrait-label" /></ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="NPCDialogue" class="dialogue" style="display: flex;">
+        <ui:Label text="Тисни C, щоб стріляти шестернями, і допоможи полагодити зламаних роботів! Повернись, коли закінчиш." class="dialogue-text" />
+    </ui:VisualElement>
+    <ui:VisualElement name="LoseScreenContainer" class="end-screen lose-screen"><ui:Label text="РОБОТА ВИВЕДЕНО З ЛАДУ" class="end-title" /><ui:Label text="Нова спроба за мить…" class="end-subtitle" /></ui:VisualElement>
+    <ui:VisualElement name="WinScreenContainer" class="end-screen win-screen"><ui:Label text="УСІХ РОБОТІВ ВІДРЕМОНТОВАНО!" class="end-title" /><ui:Label text="Чудова робота!" class="end-subtitle" /></ui:VisualElement>
+</ui:UXML>

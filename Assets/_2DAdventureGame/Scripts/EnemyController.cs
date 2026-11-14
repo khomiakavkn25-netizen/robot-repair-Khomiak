@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     int direction = 1;
     bool broken = true;
 
+    public bool isBroken { get { return broken; } }
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
