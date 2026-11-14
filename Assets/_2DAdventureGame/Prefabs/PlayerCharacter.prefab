@@ -122,10 +122,10 @@ MonoBehaviour:
       m_Processors:
       m_Groups:
       m_Action: Launch
-      m_Flags: 8
+      m_Flags: 0
     m_Flags: 0
     m_Priority: 0
-  projectilePrefab: {fileID: 100100000, guid: 08dcd67c30974e1b9bb369148a6d7096, type: 3}
+  projectilePrefab: {fileID: 1327801193728845701, guid: 08dcd67c30974e1b9bb369148a6d7096, type: 3}
   MoveAction:
     m_Name: Move
     m_Type: 0
