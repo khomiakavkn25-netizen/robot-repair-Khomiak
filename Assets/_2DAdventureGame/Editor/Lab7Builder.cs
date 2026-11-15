@@ -18,10 +18,26 @@ public static class Lab7Builder
     public static void Build()
     {
         CreateEnemyVariant();
-        CreateLevelScene();
+        RestoreReferenceLayout();
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
-        Debug.Log("Lab 7 MyLevel setup completed.");
+        Debug.Log("Lab 7 MyLevel restored from the original arena layout.");
+    }
+
+    static void RestoreReferenceLayout()
+    {
+        if (!File.Exists(MainScenePath))
+            throw new FileNotFoundException("Reference MainScene was not found.", MainScenePath);
+        if (EditorSceneManager.GetSceneByPath(LevelPath).isLoaded)
+            EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
+
+        File.Copy(MainScenePath, LevelPath, true);
+        AssetDatabase.ImportAsset(LevelPath, ImportAssetOptions.ForceUpdate);
+        List<EditorBuildSettingsScene> scenes = EditorBuildSettings.scenes
+            .Where(scene => scene.path != LevelPath)
+            .ToList();
+        scenes.Insert(0, new EditorBuildSettingsScene(LevelPath, true));
+        EditorBuildSettings.scenes = scenes.ToArray();
     }
 
     static void CreateEnemyVariant()
@@ -176,7 +192,7 @@ public static class Lab7Builder
         const string path = "Assets/_2DAdventureGame/GameUI.uxml";
         string uxml = File.ReadAllText(path);
         const string oldText = "Тисни C, щоб стріляти шестернями, і допоможи полагодити зламаних роботів! Повернись, коли закінчиш.";
-        const string newText = "Відремонтуй трьох вартових! Натискай C, коли ворог повертається спиною, та оминай червоні зони.";
+        const string newText = "Відремонтуй чотирьох вартових! Натискай C, коли ворог повертається спиною, збирай синій бонус швидкості та оминай червоні зони.";
         if (uxml.Contains(oldText)) File.WriteAllText(path, uxml.Replace(oldText, newText));
         AssetDatabase.ImportAsset(path);
     }

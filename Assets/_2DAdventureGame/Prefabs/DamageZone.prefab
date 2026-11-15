@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5519739157456214973}
   - component: {fileID: 8628936185820707367}
   - component: {fileID: 6991204276837640370}
+  - component: {fileID: 458299765001236548}
   m_Layer: 0
   m_Name: DamageZone
   m_TagString: Untagged
@@ -148,14 +149,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284107181385654575}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -179,3 +180,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72e427f0f8ac3f4bb74f1c72c845854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NewMonoBehaviourScript
+--- !u!114 &458299765001236548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284107181385654575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4b4d2d8e58487c9f71c237ea6a8b91, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::DamageZonePulse
+  pulseSpeed: 2
+  minimumOpacity: 0.65
+  maximumOpacity: 1

@@ -1,12 +1,21 @@
-﻿<ui:UXML xmlns:ui="UnityEngine.UIElements">
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="GameUI.uss" />
     <ui:VisualElement name="HealthBarBackground" class="health-frame">
         <ui:VisualElement name="HealthBarContainer" class="health-track"><ui:VisualElement name="HealthBar" class="health-fill" /></ui:VisualElement>
-        <ui:VisualElement name="CharacterPortrait" class="portrait"><ui:Label text="ROBOT" class="portrait-label" /></ui:VisualElement>
+        <ui:VisualElement name="CharacterPortrait" class="portrait"><ui:Label text="GOOSE" class="portrait-label" /></ui:VisualElement>
     </ui:VisualElement>
     <ui:VisualElement name="NPCDialogue" class="dialogue" style="display: flex;">
-        <ui:Label text="Тисни C, щоб стріляти шестернями, і допоможи полагодити зламаних роботів! Повернись, коли закінчиш." class="dialogue-text" />
+        <ui:Label text="Полагодь чотирьох вартових, зайди в портал і влуч у боса 15 разів! Натискай C, щоб стріляти." class="dialogue-text" />
     </ui:VisualElement>
-    <ui:VisualElement name="LoseScreenContainer" class="end-screen lose-screen"><ui:Label text="РОБОТА ВИВЕДЕНО З ЛАДУ" class="end-title" /><ui:Label text="Нова спроба за мить…" class="end-subtitle" /></ui:VisualElement>
-    <ui:VisualElement name="WinScreenContainer" class="end-screen win-screen"><ui:Label text="УСІХ РОБОТІВ ВІДРЕМОНТОВАНО!" class="end-title" /><ui:Label text="Чудова робота!" class="end-subtitle" /></ui:VisualElement>
+    <ui:VisualElement name="StartMenu" class="start-menu">
+        <ui:VisualElement class="start-menu-card">
+            <ui:Label text="ROBOT REPAIR" class="start-menu-title" />
+            <ui:Label text="Полагодь чотирьох роботів і переможи боса на арені." class="start-menu-copy" />
+            <ui:Label text="WASD — рух   •   C — постріл   •   X — розмова" class="start-menu-controls" />
+            <ui:Button name="StartGameButton" text="ПОЧАТИ ГРУ" class="start-menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:Label name="BossCounter" text="Влучання по босу: 0 / 15" class="boss-counter" style="display: none;" />
+    <ui:VisualElement name="LoseScreenContainer" class="end-screen lose-screen"><ui:Label text="РОБОТА ВИВЕДЕНО З ЛАДУ" class="end-title" /><ui:Label text="Спробуй ще раз" class="end-subtitle" /><ui:Button name="RestartLoseButton" text="НОВА СПРОБА" class="restart-button" /></ui:VisualElement>
+    <ui:VisualElement name="WinScreenContainer" class="end-screen win-screen"><ui:Label text="БОСА ВІДРЕМОНТОВАНО!" class="end-title" /><ui:Label text="Гру пройдено!" class="end-subtitle" /><ui:Button name="RestartWinButton" text="ЗІГРАТИ ЩЕ РАЗ" class="restart-button" /></ui:VisualElement>
 </ui:UXML>

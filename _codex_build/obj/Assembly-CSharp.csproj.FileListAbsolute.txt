@@ -1,0 +1,9 @@
+C:\Users\HOM\robot-repair-homyak\_codex_build\bin\Assembly-CSharp.deps.json
+C:\Users\HOM\robot-repair-homyak\_codex_build\bin\Assembly-CSharp.dll
+C:\Users\HOM\robot-repair-homyak\_codex_build\bin\Assembly-CSharp.pdb
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.csproj.AssemblyReference.cache
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.csproj.CoreCompileInputs.cache
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.sourcelink.json
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.dll
+C:\Users\HOM\robot-repair-homyak\_codex_build\obj\Assembly-CSharp.pdb

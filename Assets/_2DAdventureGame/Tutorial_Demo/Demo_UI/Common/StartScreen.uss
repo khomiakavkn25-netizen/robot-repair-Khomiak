@@ -1,8 +1,7 @@
-.character-selector:hover {
-    scale: 1.15 1.15;
-}
-
-.character-selector {
-    transition-property: scale;
-    transition-duration: 1s;
-}
+.menu-root { flex-grow: 1; justify-content: center; align-items: center; background-color: rgb(10, 21, 35); }
+.menu-card { width: 80%; max-width: 900px; min-height: 430px; padding: 52px; justify-content: center; align-items: center; background-color: rgb(17, 43, 65); border-width: 4px; border-color: rgb(44, 200, 224); border-radius: 28px; }
+.menu-title { color: rgb(255, 190, 72); font-size: 64px; -unity-font-style: bold; -unity-text-align: middle-center; margin-bottom: 22px; }
+.menu-copy { color: white; font-size: 30px; -unity-text-align: middle-center; white-space: normal; margin-bottom: 28px; }
+.menu-controls { color: rgb(109, 225, 239); font-size: 22px; -unity-text-align: middle-center; margin-bottom: 34px; }
+.menu-button { min-width: 300px; min-height: 70px; color: rgb(10, 21, 35); background-color: rgb(255, 190, 72); border-width: 0; border-radius: 14px; font-size: 28px; -unity-font-style: bold; }
+.menu-button:hover { background-color: rgb(255, 216, 131); }

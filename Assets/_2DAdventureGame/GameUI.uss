@@ -1,7 +1,7 @@
 .health-frame { background-image: url("Animation/Art/SugarLand/UI/UIHealthFrame.png"); -unity-background-scale-mode: scale-to-fit; position: absolute; left: 2%; top: 3%; width: 330px; height: 92px; background-color: #222a36; border-left-width: 6px; border-left-color: #f5b942; border-radius: 14px; padding-left: 92px; justify-content: center; }
 .health-track { width: 210px; height: 28px; background-color: #10151e; border-radius: 8px; overflow: hidden; }
 .health-fill { background-image: url("Animation/Art/SugarLand/UI/UIHealthBar.png"); -unity-background-scale-mode: stretch-to-fill; width: 100%; height: 100%; background-color: #51d878; border-radius: 8px; }
-.portrait { background-image: url("Animation/Art/SugarLand/UI/CharacterPortrait.png"); -unity-background-scale-mode: scale-to-fit; position: absolute; left: 12px; top: 11px; width: 68px; height: 68px; background-color: #3a5264; border-radius: 34px; justify-content: center; align-items: center; border-width: 3px; border-color: #d6e5ed; }
+.portrait { background-image: url("Animation/Art/Ducko/GoosePortrait.png"); -unity-background-scale-mode: scale-to-fit; position: absolute; left: 12px; top: 11px; width: 68px; height: 68px; background-color: #3a5264; border-radius: 34px; justify-content: center; align-items: center; border-width: 3px; border-color: #d6e5ed; }
 .portrait-label { color: white; font-size: 12px; -unity-font-style: bold; }
 .dialogue { position: absolute; left: 10%; right: 10%; bottom: 3%; min-height: 125px; background-color: rgba(24, 29, 42, 0.96); border-width: 3px; border-color: #f5b942; border-radius: 18px; padding: 22px 28px; justify-content: center; }
 .dialogue-text { color: white; font-size: 24px; white-space: normal; -unity-font-style: bold; }
@@ -10,3 +10,14 @@
 .win-screen { background-color: rgba(15, 42, 35, 0.94); }
 .end-title { color: white; font-size: 46px; -unity-font-style: bold; -unity-text-align: middle-center; }
 .end-subtitle { color: #f5cf73; font-size: 26px; margin-top: 14px; -unity-text-align: middle-center; }
+.restart-button { min-width: 250px; min-height: 62px; margin-top: 30px; color: #10151e; background-color: #f5b942; border-width: 0; border-radius: 12px; font-size: 22px; -unity-font-style: bold; }
+.restart-button:hover { background-color: #ffda83; }
+
+.boss-counter { position: absolute; right: 2%; top: 3%; padding: 16px 24px; color: white; background-color: rgba(24, 29, 42, 0.96); border-width: 3px; border-color: #48d9f5; border-radius: 14px; font-size: 24px; -unity-font-style: bold; }
+.start-menu { position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 100; justify-content: center; align-items: center; background-color: rgba(7, 16, 30, 0.96); }
+.start-menu-card { width: 82%; max-width: 900px; min-height: 420px; padding: 52px; justify-content: center; align-items: center; background-color: rgb(17, 43, 65); border-width: 4px; border-color: rgb(44, 200, 224); border-radius: 28px; }
+.start-menu-title { color: rgb(255, 190, 72); font-size: 64px; -unity-font-style: bold; -unity-text-align: middle-center; margin-bottom: 22px; }
+.start-menu-copy { color: white; font-size: 30px; -unity-text-align: middle-center; white-space: normal; margin-bottom: 28px; }
+.start-menu-controls { color: rgb(109, 225, 239); font-size: 22px; -unity-text-align: middle-center; margin-bottom: 34px; }
+.start-menu-button { min-width: 300px; min-height: 70px; color: rgb(10, 21, 35); background-color: rgb(255, 190, 72); border-width: 0; border-radius: 14px; font-size: 28px; -unity-font-style: bold; }
+.start-menu-button:hover { background-color: rgb(255, 216, 131); }

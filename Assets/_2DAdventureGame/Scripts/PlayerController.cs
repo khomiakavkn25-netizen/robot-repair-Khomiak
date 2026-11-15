@@ -7,11 +7,17 @@ public class PlayerController : MonoBehaviour
     public InputAction LaunchAction = new InputAction(
         "Launch", InputActionType.Button, "<Keyboard>/c");
     public GameObject projectilePrefab;
+    public AudioClip hitSound;
+    public AudioClip healSound;
+    public AudioClip shootSound;
     public InputAction TalkAction = new InputAction(
         "Talk", InputActionType.Button, "<Keyboard>/x");
     NonPlayerCharacter lastNonPlayerCharacter;
     Rigidbody2D rigidbody2d;
     Animator animator;
+    SpriteRenderer spriteRenderer;
+    Color originalSpriteColor;
+    Coroutine feedbackRoutine;
 
     Vector2 move;
     Vector2 moveDirection = new Vector2(1, 0);
@@ -34,11 +40,17 @@ public class PlayerController : MonoBehaviour
         TalkAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            originalSpriteColor = spriteRenderer.color;
         currentHealth = maxHealth;
     }
 
     void Update()
     {
+        if (Time.timeScale == 0f)
+            return;
+
         move = MoveAction.ReadValue<Vector2>();
 
         if (!Mathf.Approximately(move.x, 0.0f)
@@ -114,6 +126,11 @@ public class PlayerController : MonoBehaviour
             isInvincible = true;
             damageCooldown = timeInvincible;
             animator.SetTrigger("Hit");
+            PlayFeedback(hitSound, new Color(1f, 0.38f, 0.32f));
+        }
+        else if (amount > 0)
+        {
+            PlayFeedback(healSound, new Color(0.35f, 1f, 0.56f));
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount,
@@ -125,6 +142,7 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
+        PlaySound(shootSound);
         GameObject projectileObject = Instantiate(
             projectilePrefab,
             rigidbody2d.position + Vector2.up * 0.5f,
@@ -133,5 +151,33 @@ public class PlayerController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(moveDirection, 300.0f, transform);
         animator.SetTrigger("Launch");
+    }
+
+    void PlayFeedback(AudioClip clip, Color flashColor)
+    {
+        PlaySound(clip);
+        if (spriteRenderer == null)
+            return;
+        if (feedbackRoutine != null)
+            StopCoroutine(feedbackRoutine);
+        feedbackRoutine = StartCoroutine(FlashSprite(flashColor));
+    }
+
+    System.Collections.IEnumerator FlashSprite(Color flashColor)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            spriteRenderer.color = flashColor;
+            yield return new WaitForSeconds(0.07f);
+            spriteRenderer.color = originalSpriteColor;
+            yield return new WaitForSeconds(0.07f);
+        }
+        feedbackRoutine = null;
+    }
+
+    void PlaySound(AudioClip clip)
+    {
+        if (clip != null)
+            AudioSource.PlayClipAtPoint(clip, transform.position, 0.8f);
     }
 }

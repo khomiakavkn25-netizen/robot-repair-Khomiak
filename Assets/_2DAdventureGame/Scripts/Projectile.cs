@@ -17,9 +17,7 @@ public class Projectile : MonoBehaviour
             : transform.position.magnitude;
 
         if (distanceFromOwner > 100.0f)
-        {
             Destroy(gameObject);
-        }
     }
 
     public void Launch(Vector2 direction, float force)
@@ -35,11 +33,21 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyController enemy = other.GetComponent<EnemyController>();
-        if (enemy != null)
+        BossController boss = other.GetComponent<BossController>();
+        if (boss == null)
+            boss = other.GetComponentInParent<BossController>();
+        if (boss != null)
         {
-            enemy.Fix();
+            boss.TakeProjectileHit();
+            Destroy(gameObject);
+            return;
         }
+
+        EnemyController enemy = other.GetComponent<EnemyController>();
+        if (enemy == null)
+            enemy = other.GetComponentInParent<EnemyController>();
+        if (enemy != null)
+            enemy.Fix();
 
         Destroy(gameObject);
     }
